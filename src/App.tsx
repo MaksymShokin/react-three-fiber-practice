@@ -6,7 +6,19 @@ import { CustomObject } from './components/CustomObject/CustomObject';
 const App = () => {
   return (
     <div className='App'>
-      <Canvas camera={{ fov: 45, near: 0.1, far: 200, position: [3, 2, 6] }}>
+      <Canvas
+        // defaults
+        // dpr={[1, 2]}
+        // gl={{
+        //   antialias: true
+        // }}
+        camera={{
+          fov: 45,
+          near: 0.1,
+          far: 200,
+          position: [3, 2, 6]
+        }}
+      >
         <Objects />
         <CustomObject />
         {/* <mesh>

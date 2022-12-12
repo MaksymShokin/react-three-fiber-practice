@@ -1,6 +1,6 @@
 import { extend, useFrame, useThree } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Group, Mesh } from 'three';
+import { Group, Mesh, Vector3 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 extend({ OrbitControls });
@@ -10,10 +10,16 @@ export const Objects = () => {
   const groupRef = useRef<Group>(null);
 
   const { gl, camera } = useThree();
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (boxRef?.current?.rotation) {
       boxRef.current.rotation.y += delta;
     }
+
+    const angle = state.clock.elapsedTime;
+
+    state.camera.position.x = Math.sin(angle) * 8;
+    state.camera.position.z = Math.cos(angle) * 8;
+    state.camera.lookAt(0, 0, 0);
 
     // if (groupRef?.current?.rotation) {
     //   groupRef.current.rotation.y += delta;
@@ -24,7 +30,7 @@ export const Objects = () => {
     <>
       {/*       
       // @ts-ignore */}
-      <orbitControls args={[camera, gl.domElement]} />
+      {/* <orbitControls args={[camera, gl.domElement]} /> */}
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       <group ref={groupRef}>

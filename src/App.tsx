@@ -6,7 +6,7 @@ import { CustomObject } from './components/CustomObject/CustomObject';
 const App = () => {
   return (
     <div className='App'>
-      <Canvas>
+      <Canvas camera={{ fov: 45, near: 0.1, far: 200, position: [3, 2, 6] }}>
         <Objects />
         <CustomObject />
         {/* <mesh>

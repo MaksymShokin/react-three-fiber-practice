@@ -1,12 +1,14 @@
 import { Canvas } from '@react-three/fiber';
 import './App.css';
-import { Ball } from './components/Ball/Ball';
+import { Objects } from './components/Objects/Objects';
+import { CustomObject } from './components/CustomObject/CustomObject';
 
 const App = () => {
   return (
     <div className='App'>
       <Canvas>
-        <Ball />
+        <Objects />
+        <CustomObject />
         {/* <mesh>
           <torusKnotGeometry />
           <meshNormalMaterial />

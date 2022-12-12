@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 extend({ OrbitControls });
 
-export const Ball = () => {
+export const Objects = () => {
   const boxRef = useRef<Mesh>(null);
   const groupRef = useRef<Group>(null);
 

@@ -13,11 +13,16 @@ import {
 import styles from './objects.module.css';
 import font from '../../assets/bangers-v20-latin-regular.woff';
 import { useControls, button } from 'leva';
+import { Perf } from 'r3f-perf';
 
 export const Objects = () => {
   const sphereRef = useRef<Mesh>(null);
   const boxRef = useRef<Mesh>(null);
   const groupRef = useRef<Group>(null);
+
+  const { showPerf } = useControls('perf', {
+    showPerf: true
+  });
 
   const { cubeScale, cubeVisible } = useControls('cube', {
     cubeScale: {
@@ -65,6 +70,7 @@ export const Objects = () => {
 
   return (
     <>
+      {showPerf && <Perf position='top-left' />}
       <OrbitControls makeDefault />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
